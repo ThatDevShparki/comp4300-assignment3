@@ -1,3 +1,0 @@
-/Users/shparki/Documents/Workspace/projects/comp4300-assignment3/cmake-build-debug/CMakeFiles/comp4300_assignment3.dir
-/Users/shparki/Documents/Workspace/projects/comp4300-assignment3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/shparki/Documents/Workspace/projects/comp4300-assignment3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
