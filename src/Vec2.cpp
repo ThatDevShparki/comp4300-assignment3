@@ -1,22 +1,13 @@
 #include "Vec2.h"
-
 #include <cmath>
-
-
-/* Constructors */
 
 
 Vec2::Vec2() = default;
 
 Vec2::Vec2(float xin, float yin)
-	: x(xin)
-	, y(yin)
+	: x(xin), y(yin)
 {
 }
-
-
-/* Operators */
-
 
 bool Vec2::operator ==(const Vec2& rhs) const
 {
@@ -38,14 +29,14 @@ Vec2 Vec2::operator -(const Vec2& rhs) const
 	return { x - rhs.x, y - rhs.y };
 }
 
-Vec2 Vec2::operator /(const float rhs) const
-{
-	return { x / rhs, y / rhs };
-}
-
-Vec2 Vec2::operator *(const float rhs) const
+Vec2 Vec2::operator *(float rhs) const
 {
 	return { x * rhs, y * rhs };
+}
+
+Vec2 Vec2::operator /(float rhs) const
+{
+	return { x / rhs, y / rhs };
 }
 
 void Vec2::operator +=(const Vec2& rhs)
@@ -60,38 +51,29 @@ void Vec2::operator -=(const Vec2& rhs)
 	y -= rhs.y;
 }
 
-void Vec2::operator *=(const float rhs)
+void Vec2::operator *=(float rhs)
 {
 	x *= rhs;
 	y *= rhs;
 }
 
-void Vec2::operator /=(const float rhs)
+void Vec2::operator /=(float rhs)
 {
 	x /= rhs;
 	y /= rhs;
 }
 
-
-/* Maths Methods */
-
-
-float Vec2::dist(const Vec2& rhs) const
+[[nodiscard]] float Vec2::mag() const
 {
-	return sqrtf(powf(x - rhs.x, 2) + powf(y - rhs.y, 2));
+	return sqrtf(powf(x, 2) + powf(y, 2));
 }
 
-float Vec2::mag() const
+[[nodiscard]] Vec2 Vec2::norm() const
 {
-	return dist({ 0.0f, 0.0f });
+	return *this / mag();
 }
 
-Vec2 Vec2::norm() const
+[[nodiscard]] float Vec2::dist(const Vec2& rhs) const
 {
-	float len = mag();
-	if (len != 0)
-	{
-		return { x / len, y / len };
-	}
-	return { 0.0f, 0.0f };
+	return (*this - rhs).mag();
 }
