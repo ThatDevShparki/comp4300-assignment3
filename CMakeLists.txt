@@ -26,6 +26,7 @@ set(src_files
         src/main.cpp
         src/Animation.cpp
         src/Entity.cpp
+        src/EntityManager.cpp
         src/Vec2.cpp
 )
 add_executable(${exec_name} ${src_files})
