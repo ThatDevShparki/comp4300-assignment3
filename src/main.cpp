@@ -1,8 +1,8 @@
-#include <iostream>
-
+#include <SFML/Graphics.hpp>
+#include "GameEngine.h"
 
 int main()
 {
-	std::cout << "Hello, World!" << std::endl;
-	return 0;
+	GameEngine g("assets/config.txt");
+	g.run();
 }

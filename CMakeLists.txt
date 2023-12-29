@@ -26,6 +26,7 @@ set(src_files
         src/main.cpp
         src/Action.cpp
         src/Animation.cpp
+        src/Assets.cpp
         src/Entity.cpp
         src/EntityManager.cpp
         src/GameEngine.cpp
@@ -39,5 +40,8 @@ target_compile_features(${exec_name} PRIVATE cxx_std_17)
 
 include_directories(include)
 
-
 install(TARGETS ${exec_name})
+
+
+# move assets over
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
