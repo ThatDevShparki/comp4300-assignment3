@@ -30,6 +30,7 @@ set(src_files
         src/Entity.cpp
         src/EntityManager.cpp
         src/GameEngine.cpp
+        src/Physics.cpp
         src/Scene.cpp
         src/Vec2.cpp
 )
