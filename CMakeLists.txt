@@ -24,9 +24,12 @@ FetchContent_MakeAvailable(SFML)
 set(exec_name comp4300_assignment3)
 set(src_files
         src/main.cpp
+        src/Action.cpp
         src/Animation.cpp
         src/Entity.cpp
         src/EntityManager.cpp
+        src/GameEngine.cpp
+        src/Scene.cpp
         src/Vec2.cpp
 )
 add_executable(${exec_name} ${src_files})
