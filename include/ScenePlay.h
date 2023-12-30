@@ -3,7 +3,7 @@
 #include "Scene.h"
 #include <memory>
 
-class Scene_Play : public Scene
+class ScenePlay : public Scene
 {
 	struct PlayerConfig
 	{
@@ -31,12 +31,12 @@ protected:
 	void sLifespan();
 	void sCollision();
 	void sAnimation();
-	void sRender();
-	void sDoAction(const Action&);
-	void onEnd();
+	void sRender() override;
+	void sDoAction(const Action&) override;
+	void onEnd() override;
 	void setPaused(bool);
 
 public:
-	Scene_Play(GameEngine*, std::string&);
-	void update();
+	ScenePlay(GameEngine* gameEngine, std::string&);
+	void update() override;
 };

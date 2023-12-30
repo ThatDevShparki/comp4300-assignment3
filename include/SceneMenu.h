@@ -4,7 +4,7 @@
 #include "Scene.h"
 #include <vector>
 
-class Scene_Menu : public Scene
+class SceneMenu : public Scene
 {
 protected:
 
@@ -15,12 +15,12 @@ protected:
 	size_t                   m_selectedMenuIndex;
 
 	void init();
-	void update();
-	void onEnd();
-	void sDoAction(const Action& action);
+	void update() override;
+	void onEnd() override;
+	void sDoAction(const Action& action) override;
 
 public:
 
-	Scene_Menu(GameEngine* gameEngine = nullptr);
-	void sRender();
+	explicit SceneMenu(GameEngine* gameEngine = nullptr);
+	void sRender() override;
 };

@@ -32,8 +32,8 @@ set(src_files
         src/GameEngine.cpp
         src/Physics.cpp
         src/Scene.cpp
-        src/Scene_Menu.cpp
-        src/Scene_Play.cpp
+        src/SceneMenu.cpp
+        src/ScenePlay.cpp
         src/Vec2.cpp
 )
 add_executable(${exec_name} ${src_files})

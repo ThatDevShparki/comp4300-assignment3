@@ -28,7 +28,7 @@ protected:
 public:
 
 	Scene();
-	Scene(GameEngine* gameEngine);
+	explicit Scene(GameEngine* gameEngine);
 	virtual ~Scene();
 
 	virtual void update() = 0;
@@ -36,14 +36,14 @@ public:
 	virtual void sRender() = 0;
 
 	virtual void doAction(const Action& action);
-	void simulate(const size_t frames);
+	void simulate(size_t frames);
 	void registerAction(int inputKey, const std::string& actionName);
 
-	size_t width() const;
-	size_t height() const;
-	size_t currentFrame() const;
+	[[nodiscard]] size_t width() const;
+	[[nodiscard]] size_t height() const;
+	[[nodiscard]] size_t currentFrame() const;
 
-	bool hasEnded() const;
+	[[nodiscard]] bool hasEnded() const;
 	ActionMap& getActionMap();
 	void drawLine(const Vec2& p1, const Vec2& p2);
 };
