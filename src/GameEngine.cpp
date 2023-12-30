@@ -19,13 +19,6 @@ void GameEngine::init(const std::string& path)
 	m_window.setVerticalSyncEnabled(true);
 }
 
-void GameEngine::run()
-{
-	while (isRunning())
-	{
-		update();
-	}
-}
 
 void GameEngine::update()
 {
@@ -45,13 +38,47 @@ void GameEngine::sUserInput()
 }
 
 
-bool GameEngine::isRunning()
+std::shared_ptr<Scene> GameEngine::currentScene()
 {
-	return m_running;
+	return m_scenes[m_currentScene];
 }
+
+void GameEngine::changeScene(
+	const std::string& sceneName,
+	std::shared_ptr<Scene> scene,
+	bool endCurrentScene
+)
+{
+	// TODO: implement this
+}
+
 
 void GameEngine::quit()
 {
 	m_running = false;
+}
+
+void GameEngine::run()
+{
+	while (isRunning())
+	{
+		update();
+	}
+}
+
+
+sf::RenderWindow& GameEngine::window()
+{
+	return m_window;
+}
+
+const Assets& GameEngine::assets() const
+{
+	return m_assets;
+}
+
+bool GameEngine::isRunning() const
+{
+	return m_running;
 }
 

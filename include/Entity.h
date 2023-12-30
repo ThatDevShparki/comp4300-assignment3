@@ -62,6 +62,4 @@ public:
 	{
 		getComponent<T>() = T();
 	};
-
-
 };

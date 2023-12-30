@@ -16,7 +16,6 @@ class Scene
 protected:
 
 	GameEngine* m_game = nullptr;
-
 	EntityManager m_entityManager;
 	ActionMap     m_actionMap;
 	bool          m_pause        = false;
@@ -29,7 +28,7 @@ protected:
 public:
 
 	Scene();
-	Scene(GameEngine& gameEngine);
+	Scene(GameEngine* gameEngine);
 	virtual ~Scene();
 
 	virtual void update() = 0;
@@ -47,5 +46,4 @@ public:
 	bool hasEnded() const;
 	ActionMap& getActionMap();
 	void drawLine(const Vec2& p1, const Vec2& p2);
-
 };

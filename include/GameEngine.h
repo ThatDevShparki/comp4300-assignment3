@@ -29,7 +29,7 @@ protected:
 	std::shared_ptr<Scene> currentScene();
 
 public:
-	GameEngine(const std::string& path);
+	explicit GameEngine(const std::string& path);
 
 	void changeScene(
 		const std::string& sceneName,
@@ -42,5 +42,5 @@ public:
 
 	sf::RenderWindow& window();
 	const Assets& assets() const;
-	bool isRunning();
+	bool isRunning() const;
 };
