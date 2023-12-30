@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include <vector>
 
+
 class SceneMenu : public Scene
 {
 protected:
@@ -23,4 +24,5 @@ public:
 
 	explicit SceneMenu(GameEngine* gameEngine = nullptr);
 	void sRender() override;
+
 };

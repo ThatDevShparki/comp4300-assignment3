@@ -24,7 +24,7 @@ Animation::Animation(
 	m_sprite.setOrigin(m_size.x / 2.0f, m_size.y / 2.0f);
 	m_sprite.setTextureRect(
 		sf::IntRect(
-			std::floor(m_currentFrame / m_frameCount) * m_size.x,
+			std::floor(m_currentFrame) * m_size.x,
 			0,
 			m_size.x,
 			m_size.y
@@ -34,7 +34,7 @@ Animation::Animation(
 
 void Animation::update()
 {
-	// TODO: implement this
+	m_currentFrame++;
 }
 
 bool Animation::hasEnded() const

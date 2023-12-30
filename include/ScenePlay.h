@@ -18,7 +18,7 @@ protected:
 	PlayerConfig            m_playerConfig;
 	bool                    m_drawTextures  = true;
 	bool                    m_drawCollision = false;
-	bool                    m_drawDrawGrid  = false;
+	bool                    m_drawGrid      = false;
 	const Vec2              m_gridSize      = { 64, 64 };
 	sf::Text                m_gridText;
 
@@ -37,6 +37,6 @@ protected:
 	void setPaused(bool);
 
 public:
-	ScenePlay(GameEngine* gameEngine, std::string&);
+	ScenePlay(GameEngine* gameEngine, const std::string& levelPath);
 	void update() override;
 };

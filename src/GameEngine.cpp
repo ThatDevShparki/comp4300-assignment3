@@ -1,5 +1,7 @@
 #include "GameEngine.h"
 
+#include "ScenePlay.h"
+#include "SceneMenu.h"
 #include <iostream>
 #include <string>
 
@@ -17,6 +19,8 @@ void GameEngine::init(const std::string& path)
 	);
 	m_window.setFramerateLimit(60);
 	m_window.setVerticalSyncEnabled(true);
+
+	changeScene("MENU", std::make_shared<SceneMenu>(this));
 }
 
 
@@ -33,6 +37,22 @@ void GameEngine::sUserInput()
 		if (event.type == sf::Event::Closed)
 		{
 			quit();
+		}
+
+		if (event.type == sf::Event::KeyPressed ||
+			event.type == sf::Event::KeyReleased)
+		{
+			std::cout << event.key.code << std::endl;
+
+			const auto& actions = currentScene()->getActionMap();
+
+			if (actions.find(event.key.code) == actions.end())
+				continue;
+
+			const std::string actionType = (event.type == sf::Event::KeyPressed)
+										   ? "START" : "END";
+
+			currentScene()->doAction(Action(actions.at(event.key.code), actionType));
 		}
 	}
 }
@@ -79,6 +99,6 @@ const Assets& GameEngine::assets() const
 
 bool GameEngine::isRunning() const
 {
-	return m_running;
+	return m_running && m_window.isOpen();
 }
 
